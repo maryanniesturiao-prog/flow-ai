@@ -1,121 +1,247 @@
+
 import { CLASS_META, summarizeOrders } from '../lib/compareOrder.js'
 import { DEMO_ORDERS } from '../lib/demoOrders.js'
 import { formatAmount, formatMoney, formatPercent } from '../lib/format.js'
+import './HomePage.css'
 
 const summary = summarizeOrders(DEMO_ORDERS)
-const preview = DEMO_ORDERS.find((order) => order.classificacao !== 'conforme')
+const preview = DEMO_ORDERS.find(
+  (order) => order.classificacao !== 'conforme'
+)
 
 const modules = [
   {
+    number: '01',
     href: '#analisar',
-    kicker: 'Módulo 1',
     title: 'Flow Analyze',
-    text: 'Inclua ordens fictícias e veja valor solicitado, valor medido, diferença e classificação. A conta é feita em JavaScript no navegador.',
+    category: 'ANÁLISE DE DADOS',
+    text: 'Compare valores solicitados e medidos, identifique divergências e organize informações para apoiar decisões.',
+    icon: '◈',
   },
   {
+    number: '02',
     href: '#automatizar',
-    kicker: 'Módulo 2',
     title: 'Flow Automate',
-    text: 'Um roteiro visual com cinco etapas e um exemplo que avança na tela. A execução é uma simulação local, sem sistema externo.',
+    category: 'AUTOMAÇÃO DE PROCESSOS',
+    text: 'Explore uma simulação visual de um processo estruturado em etapas, do recebimento à verificação.',
+    icon: '↗',
   },
   {
+    number: '03',
     href: '#agente',
-    kicker: 'Módulo 3',
     title: 'Flow Agent',
-    text: 'Um chat para consultar o próprio protótipo. As respostas são textos prontos, sem modelo de IA.',
+    category: 'ASSISTENTE EXPERIMENTAL',
+    text: 'Converse com um assistente demonstrativo que explica o funcionamento do projeto por meio de respostas predefinidas.',
+    icon: '✳',
   },
 ]
 
 export default function HomePage() {
   return (
-    <div className="page">
-      <section className="hero">
-        <div>
-          <p className="eyebrow">Plataforma de demonstração</p>
-          <h1>Apoio visual à conferência de ordens de serviço.</h1>
-          <p className="lead">
-            O FLOW.AI mostra, nesta primeira versão, como um recrutador pode
-            comparar valores, acompanhar um roteiro de verificação e ler
-            explicações do próprio protótipo. Nada aqui consulta sistemas
-            externos.
+    <div className="page flow-portfolio">
+      <section className="flow-intro">
+        <div className="flow-intro-content">
+          <span className="flow-pill">
+            PORTFÓLIO INTERATIVO · 2026
+          </span>
+
+          <p className="flow-overline">
+            AUTOMAÇÃO / DADOS / TECNOLOGIA
           </p>
-          <div className="hero-actions">
-            <a className="button primary" href="#analisar">
-              Abrir Flow Analyze
+
+          <h1>
+            Menos tarefas repetitivas.
+            <span> Mais espaço para pensar.</span>
+          </h1>
+
+          <p className="flow-description">
+            FLOW.AI é um laboratório experimental de
+            ferramentas digitais. Uma proposta para explorar
+            como dados, processos e interfaces podem tornar
+            atividades complexas mais claras e eficientes.
+          </p>
+
+          <div className="flow-buttons">
+            <a className="flow-button-primary" href="#analisar">
+              Explorar ferramentas <span>↗</span>
             </a>
-            <a className="button ghost" href="#sobre">
-              Sobre o projeto
+            <a className="flow-button-secondary" href="#sobre">
+              Conhecer o projeto
             </a>
           </div>
+
+          <div className="flow-intro-foot">
+            <span className="flow-pulse" />
+            Protótipo funcional com dados fictícios
+          </div>
         </div>
-        <article className="preview-card">
-          <p className="demo-flag">Trecho da amostra fictícia</p>
-          <h2>{preview.id}</h2>
-          <p>{preview.servico}</p>
-          <dl>
-            <div>
-              <dt>Solicitado</dt>
-              <dd>{formatAmount(preview.solicitado)}</dd>
-            </div>
-            <div>
-              <dt>Medido</dt>
-              <dd>{formatAmount(preview.medido)}</dd>
-            </div>
-            <div>
-              <dt>Diferença</dt>
-              <dd>{formatMoney(preview.diferenca)}</dd>
-            </div>
-          </dl>
-          <p className={`badge ${CLASS_META[preview.classificacao].tone}`}>
-            {CLASS_META[preview.classificacao].label} · {formatPercent(preview.percentual)}
+
+        <div className="flow-art" aria-hidden="true">
+          <div className="flow-orbit flow-orbit-one" />
+          <div className="flow-orbit flow-orbit-two" />
+          <div className="flow-art-core">
+            <span>F</span>
+          </div>
+          <div className="flow-floating flow-floating-one">
+            ANALYZE
+          </div>
+          <div className="flow-floating flow-floating-two">
+            AUTOMATE
+          </div>
+          <div className="flow-floating flow-floating-three">
+            AGENT
+          </div>
+        </div>
+      </section>
+
+      <section className="flow-story">
+        <div className="flow-section-heading">
+          <span className="flow-overline">01 / O CONCEITO</span>
+          <h2>Da complexidade à clareza.</h2>
+          <p>
+            Muitos processos envolvem conferências manuais,
+            informações dispersas e etapas repetitivas.
+            O FLOW.AI explora três maneiras de organizar
+            essas atividades em uma experiência digital.
           </p>
-        </article>
-      </section>
-
-      <section className="section" aria-labelledby="indicadores">
-        <div className="section-head">
-          <h2 id="indicadores">Indicadores da amostra</h2>
-          <p className="demo-flag">Dados de demonstração</p>
         </div>
-        <p className="note">
-          Os números abaixo são a contagem da amostra fictícia embutida no
-          código ({summary.total} ordens). Não descrevem uma operação real nem
-          uma economia de tempo.
-        </p>
-        <div className="stats">
+
+        <div className="flow-steps">
           <article>
-            <strong>{summary.total}</strong>
-            <span>ordens na amostra</span>
+            <span>01</span>
+            <h3>Entender</h3>
+            <p>Identificar o problema e organizar os dados.</p>
           </article>
+          <div className="flow-step-arrow" aria-hidden="true">→</div>
           <article>
-            <strong>{summary.conforme}</strong>
-            <span>classificadas como conformes</span>
+            <span>02</span>
+            <h3>Estruturar</h3>
+            <p>Transformar tarefas em etapas compreensíveis.</p>
           </article>
+          <div className="flow-step-arrow" aria-hidden="true">→</div>
           <article>
-            <strong>{summary.divergentes}</strong>
-            <span>com alguma divergência</span>
-          </article>
-          <article>
-            <strong>3</strong>
-            <span>módulos nesta versão</span>
+            <span>03</span>
+            <h3>Experimentar</h3>
+            <p>Testar soluções em um ambiente demonstrativo.</p>
           </article>
         </div>
       </section>
 
-      <section className="section" aria-labelledby="modulos">
-        <div className="section-head">
-          <h2 id="modulos">Módulos</h2>
+      <section className="flow-modules" aria-labelledby="flow-modules-title">
+        <div className="flow-section-heading">
+          <span className="flow-overline">02 / EXPLORE</span>
+          <h2 id="flow-modules-title">
+            Três ferramentas. Diferentes possibilidades.
+          </h2>
+          <p>
+            Escolha um módulo e experimente o protótipo.
+            Cada ferramenta funciona de forma independente.
+          </p>
         </div>
-        <div className="cards">
+
+        <div className="flow-module-grid">
           {modules.map((module) => (
-            <a key={module.href} className="card" href={module.href}>
-              <span className="kicker">{module.kicker}</span>
-              <h3>{module.title}</h3>
-              <p>{module.text}</p>
-              <span className="card-link">Abrir módulo</span>
+            <a
+              className="flow-module-card"
+              href={module.href}
+              key={module.number}
+            >
+              <div className="flow-module-top">
+                <span>{module.number} / 03</span>
+                <span className="flow-module-icon">
+                  {module.icon}
+                </span>
+              </div>
+              <div>
+                <span className="flow-module-category">
+                  {module.category}
+                </span>
+                <h3>{module.title}</h3>
+                <p>{module.text}</p>
+              </div>
+              <span className="flow-module-link">
+                Experimentar módulo <span>↗</span>
+              </span>
             </a>
           ))}
         </div>
+      </section>
+
+      <section className="flow-results">
+        <div className="flow-section-heading">
+          <span className="flow-overline">03 / DEMONSTRAÇÃO</span>
+          <h2>Uma amostra, números verificáveis.</h2>
+          <p>
+            Os indicadores abaixo são calculados a partir
+            de ordens fictícias incluídas no código.
+            Não representam resultados de uma operação real.
+          </p>
+        </div>
+
+        <div className="flow-stat-grid">
+          <article>
+            <strong>{summary.total}</strong>
+            <span>Ordens na amostra</span>
+          </article>
+          <article>
+            <strong>{summary.conforme}</strong>
+            <span>Ordens conformes</span>
+          </article>
+          <article>
+            <strong>{summary.divergentes}</strong>
+            <span>Com divergência</span>
+          </article>
+          <article>
+            <strong>03</strong>
+            <span>Módulos demonstrativos</span>
+          </article>
+        </div>
+
+        {preview && (
+          <div className="flow-example">
+            <div>
+              <span className="flow-overline">
+                EXEMPLO DE ANÁLISE
+              </span>
+              <h3>{preview.id}</h3>
+              <p>{preview.servico}</p>
+            </div>
+            <div className="flow-example-values">
+              <div>
+                <span>Solicitado</span>
+                <strong>{formatAmount(preview.solicitado)}</strong>
+              </div>
+              <div>
+                <span>Medido</span>
+                <strong>{formatAmount(preview.medido)}</strong>
+              </div>
+              <div>
+                <span>Diferença</span>
+                <strong>{formatMoney(preview.diferenca)}</strong>
+              </div>
+              <div>
+                <span>Classificação</span>
+                <strong>
+                  {CLASS_META[preview.classificacao].label}
+                  {' · '}
+                  {formatPercent(preview.percentual)}
+                </strong>
+              </div>
+            </div>
+          </div>
+        )}
+      </section>
+
+      <section className="flow-final">
+        <span className="flow-overline">PRÓXIMO PASSO</span>
+        <h2>Agora é sua vez de explorar.</h2>
+        <p>
+          Experimente as ferramentas e conheça as decisões
+          por trás deste protótipo.
+        </p>
+        <a className="flow-button-primary" href="#analisar">
+          Começar demonstração ↗
+        </a>
       </section>
     </div>
   )
