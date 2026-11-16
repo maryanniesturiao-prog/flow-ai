@@ -5,8 +5,9 @@ import AgentPage from './pages/AgentPage.jsx'
 import AnalyzePage from './pages/AnalyzePage.jsx'
 import AutomatePage from './pages/AutomatePage.jsx'
 import HomePage from './pages/HomePage.jsx'
+import CaseStudyPage from './pages/CaseStudyPage.jsx'
 
-const VIEWS = ['inicio', 'analisar', 'automatizar', 'agente', 'sobre']
+const VIEWS = ['inicio', 'analisar', 'automatizar', 'agente', 'estudo', 'sobre']
 
 function readView() {
   const hash = window.location.hash.replace('#', '')
@@ -30,6 +31,7 @@ export default function App() {
     analisar: <AnalyzePage />,
     automatizar: <AutomatePage />,
     agente: <AgentPage />,
+    estudo: <CaseStudyPage />,
     sobre: <AboutPage />,
   }
 
