@@ -1,10 +1,13 @@
+
 const LINKS = [
   { id: 'inicio', label: 'Início', hint: 'Visão da demonstração' },
+  { id: 'estudo', label: 'Estudo de caso', hint: 'Conheça a criação do FLOW.AI' },
   { id: 'analisar', label: 'Flow Analyze', hint: 'Comparar valores' },
   { id: 'automatizar', label: 'Flow Automate', hint: 'Roteiro simulado' },
   { id: 'agente', label: 'Flow Agent', hint: 'Respostas prontas' },
   { id: 'sobre', label: 'Sobre o projeto', hint: 'Escopo e limites' },
 ]
+
 
 export default function Sidebar({ view, open }) {
   return (

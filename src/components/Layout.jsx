@@ -6,6 +6,7 @@ const TITLES = {
   analisar: 'Flow Analyze',
   automatizar: 'Flow Automate',
   agente: 'Flow Agent',
+  estudo: 'Estudo de caso',
   sobre: 'Sobre o projeto',
 }
 
