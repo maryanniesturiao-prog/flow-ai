@@ -47,7 +47,11 @@ export default function CaseStudyPage() {
         </p>
 
         <div className="case-author">
-          <div className="case-avatar">MS</div>
+        <img
+  className="case-avatar"
+  src="/foto-maryannie.jpg"
+  alt="Foto de Maryannie Sturião"
+/>
           <div>
             <strong>Maryannie Sturião</strong>
             <span>Criadora do FLOW.AI</span>
